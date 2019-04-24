@@ -2,6 +2,7 @@ package com.example.csc300binarytree;
 
 public class BinaryTree2
 {
+    private BinaryTree2 temp;
     private int payload;
     private BinaryTree2 left;
     private BinaryTree2 right;
@@ -24,6 +25,25 @@ public class BinaryTree2
         {
             this.right.visitInOrder();
         }
+    }
+    public int getLeft()
+    {
+       if(this.left != null)
+       {
+           temp = this.left;
+           this.left = this.left.left;
+
+       }
+        return(temp.payload);
+    }
+    public int getRight()
+    {
+        if(this.right != null)
+        {
+            temp = this.right;
+            this.right = this.right.right;
+        }
+        return temp.payload;
     }
 
     public void add(int payloadToAdd)
@@ -53,4 +73,6 @@ public class BinaryTree2
             }
         }
     }
+
+
 }
